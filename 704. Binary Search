@@ -1,0 +1,20 @@
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+
+        l, r = 0, len(nums)-1
+        
+
+        while l<=r:
+            middle = (l+r)//2
+            if target<nums[middle]:
+                r = middle - 1
+            elif target>nums[middle]:
+                l = middle + 1
+            else:
+                return middle
+
+        return -1
+
+        #There is a situation where, in some languages if the indexes are really huge then doing l+r might cause an overflow and give you the wrong result while calculating middle. To resolve this, calculate the distance between l and r by doing (r-l), then divide it by two ad then add it to l to get the middle. So the final answer to calculate middle would be middle = l+ ((r-l)//2)
+
+#time complexity is log n as it eliminates half of the array each time. 
