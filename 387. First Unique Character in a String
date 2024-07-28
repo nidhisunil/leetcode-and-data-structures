@@ -1,0 +1,22 @@
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        hashmap = {}
+
+        for letter in s:
+            if letter in hashmap:
+                #add one to the occurence
+                hashmap[letter] = hashmap[letter]+1
+
+            else: 
+                #add the value and count to the dict
+                hashmap[letter] = 1
+
+        #have a count of all letters
+        if 1 not in hashmap.values():
+            return -1
+
+        for i in range(len(s)):
+            if hashmap[s[i]] == 1:
+                return i
+
+        
