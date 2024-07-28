@@ -1,0 +1,26 @@
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        #to find smallest word
+        smallest_word = words[0]
+        lenth = len(words[0])
+        for word in words:
+            if len(word)<lenth:
+                lenth = len(word)
+                smallest_word = word
+    
+        output = []
+
+        #smallest word is now in smallest_word
+        for letter in smallest_word:
+            flag = True
+            for i in range(0,len(words)):
+                if letter not in words[i]:
+                    flag = False
+                else:
+                    #delete letter from word 
+                    words[i]=words[i].replace(letter,"",1)
+
+            if flag == True:
+                output.append(letter)
+        
+        return output
