@@ -1,0 +1,27 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        output = 0
+        hash_map = {}
+        hash_map["I"] = 1
+        hash_map["V"] = 5
+        hash_map["X"] = 10
+        hash_map["L"] = 50
+        hash_map["C"] = 100
+        hash_map["D"] = 500
+        hash_map["M"] = 1000
+
+
+        for i in range(0,len(s)):
+            #need a condition where we are at last element 
+            
+
+            if i<len(s)-1 and hash_map[s[i]]<hash_map[s[i+1]]:
+                output = output - hash_map[s[i]]
+
+            else:
+                output = output + hash_map[s[i]]
+
+        
+
+
+        return (output)
