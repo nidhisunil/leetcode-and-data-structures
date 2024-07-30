@@ -1,0 +1,24 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        
+        hashmap = {}
+
+        if len(strs) == 0:
+            return [strs]
+
+        for word in strs:
+            temp_word = word
+            #word = list(word)
+            #word.sort()
+            word = ''.join(sorted(word))
+            if word in hashmap:
+                hashmap[word].append(temp_word)
+
+            else:
+                hashmap[word] = [temp_word]
+
+        output = []
+        for list_of_anagrams in hashmap.values():
+            output.append(list_of_anagrams)
+
+        return output
