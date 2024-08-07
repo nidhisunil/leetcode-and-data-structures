@@ -1,0 +1,15 @@
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+
+        #intuition: where the split between p and q happens is the answer. So if both p and q go to one of the sides, you dom't have to consider the other side at all. 
+
+        curr = root
+
+        while curr:
+            if p.val>curr.val and q.val>curr.val:
+                curr = curr.right
+            elif p.val<curr.val and q.val<curr.val:
+                curr = curr.left
+            else:
+                return curr
+        
