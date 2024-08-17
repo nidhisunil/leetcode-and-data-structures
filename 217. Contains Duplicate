@@ -1,0 +1,14 @@
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        #Intuition-> As you go through the array, check if it is already in the hashmap. If not, add it. If it is, then stop and output the answer
+
+        hashmap = {}
+        for n in nums:
+            if n in hashmap:
+                return True 
+            else: 
+                hashmap[n] = 1
+
+        return False
+
+        
