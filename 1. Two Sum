@@ -1,7 +1,7 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         hashmap = {}
-        
+        #Intuition->For every element, you're adding it into the hashmap while also checking if the difference between current and target is already in the hashmap. This way, you only have to make one pass
         for i, n in enumerate(nums):
             diff = target-n
             if diff in hashmap:
