@@ -1,4 +1,8 @@
-def maxProfit(self, prices: List[int]) -> int:
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+
+        #Intuition->Point l and r to positions 0 and 1. Keep going till r reaches the end. If the price of l<r, then get the max of xurrent max and price difference at this time. Continue by increasing r. If price at l is not<r, the you can move l right up to r. 
+
         l, r = 0, 1
         maximum_profit = 0
         while (r<len(prices)):
