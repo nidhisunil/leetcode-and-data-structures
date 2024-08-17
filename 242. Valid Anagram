@@ -1,23 +1,25 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
 
-        hashmap1 = {}
-        hashmap2 = {}
-        for c in s:
-            if c in hashmap1:
-                hashmap1[c] = hashmap1[c]+1
+        #Intuition-> Basically, you just have to check if both words contain the same number of each letter. Create a hashmap of letter to number for both words and check if they are the same. 
 
+        hashmap1, hashmap2 = {}, {}
+
+        for n in s:
+            if n in hashmap1:
+                hashmap1[n] = hashmap1[n]+1
             else:
-                hashmap1[c] = 1
+                hashmap1[n] = 1
 
-        for c in t:
-            if c in hashmap2:
-                hashmap2[c] = hashmap2[c]+1
-
+        for n in t:
+            if n in hashmap2:
+                hashmap2[n] = hashmap2[n]+1
             else:
-                hashmap2[c] = 1
+                hashmap2[n] = 1
 
+            
         if hashmap1 == hashmap2:
             return True
         else:
             return False
+               
