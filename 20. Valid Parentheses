@@ -1,5 +1,8 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+
+        #Intuition->If you encounter a closing bracket, then pop if the last element is an opening bracket otherwise return False. If you encounter an opening bracket, just add it into the stack. At the end, if there are elements remaining in the stack, output False. If stack is empty, it is valid parentheses and output True
+
         hashmap = {")":"(", "}":"{", "]":"["}
         stack = []
         for c in s:
