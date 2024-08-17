@@ -1,5 +1,8 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+
+        #Intuition->Convert to lower and remove spaces. Two pointers to left and right. While l is lesser than or equal to right, keep checking if both pointers are the same letter. If yes, the incr l and decr r
+
         clean_text = ''.join(char for char in s if char.isalnum())
 
         if clean_text == '':
