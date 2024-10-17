@@ -1,0 +1,32 @@
+class Solution(object):
+    def minStartValue(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        new_list = [] #to store consecutive sum
+        one_negative = False #to check if even one number is negative 
+        sums = 0
+        
+        for num in nums:
+            if num<0:
+                one_negative = True 
+            sums = sums + num
+            new_list.append(sums)
+                
+                
+        #if all numbers are positive, then return 1 by default        
+        if one_negative == False:
+            return 1
+        
+        one_negative = False
+        for num in new_list:
+            if num<0:
+                one_negative = True 
+        if one_negative == False:
+            return 1
+        
+                
+        
+        mins = min(new_list)
+        return ((mins*-1)+1)
