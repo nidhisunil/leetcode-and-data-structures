@@ -1,0 +1,15 @@
+class Solution(object):
+    def runningSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        new_sum = 0
+        new_sum_array = []
+        for num in nums:
+            new_sum = new_sum + num
+            new_sum_array.append(new_sum)
+            
+        return new_sum_array
+    
+        
