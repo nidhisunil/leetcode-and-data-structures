@@ -1,0 +1,31 @@
+class Solution(object):
+    def getAverages(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+ 
+        running_sum = []
+        sums = 0
+        new_list = []
+        
+        for num in nums:
+            sums = sums+num
+            running_sum.append(sums)
+            
+        
+            
+        
+        for i in range(0,len(nums)):
+            if (i-k < 0) or (i >= len(nums)-k):
+                new_list.append(-1)
+                
+            else:
+                if (i-k-1<0):
+                    new_list.append((running_sum[i+k]) / (2*k+1))
+                else:
+                    new_list.append((running_sum[i+k] - running_sum[i-k-1]) / (2*k+1))
+                
+                
+        return new_list
