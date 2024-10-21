@@ -1,0 +1,11 @@
+class Solution(object):
+    def checkIfPangram(self, sentence):
+        """
+        :type sentence: str
+        :rtype: bool
+        """
+        new = list(sentence)
+        sets = set(new)
+        
+        return (len(sets) == 26) 
+            
