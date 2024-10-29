@@ -1,0 +1,23 @@
+class Solution(object):
+    def largestUniqueNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        hash_table = {}
+        for n in nums:
+            if n not in hash_table:
+                hash_table[n] = 1
+            else:
+                hash_table[n] = hash_table[n] + 1
+                
+        single_values = []
+        
+        for key in hash_table:
+            if hash_table[key] == 1:
+                single_values.append(key)
+                
+        if not single_values:
+            return (-1)
+        else:
+            return max(single_values)
