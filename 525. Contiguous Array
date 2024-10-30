@@ -1,0 +1,41 @@
+class Solution(object):
+    def findMaxLength(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        #Maintain a res = 0  for result of longest subarray
+        #A value longest that will increment by 1 for every 1 and decrement by 1 for every 0
+        #A hashmap where you will store the first occurence of longest as key and its index as value
+        #If the longest becomes zero, then make sure that the current result is not bigger than the length of list till current index, and update res to i+1 (length of current index)
+        #else if the longest is not in the hash, add it
+        #else if it is already in the hashmap, then figure out the difference of indices between current index and indexwhere that longest was first encountered (which is stored in the hashmap). If this is bigger than res, update res to this value. 
+
+        
+        res = 0 #length of longest subarray
+        longest = 0 #add 1 for a 1 encountered, -1 for a 0 encountered 
+        hash_map = {} #stores first occurence of longest -> index encountered at
+        
+        for i, n in enumerate(nums):
+            
+            #to calculate longest
+            if (n == 1):
+                longest += 1
+            else:
+                longest -= 1 
+                
+            
+            if longest == 0:
+                if res<i+1:
+                    res = i+1
+                    
+            #to check existence in hashmap    
+            elif longest not in hash_map:
+                hash_map[longest] = i
+                
+            else:
+                x = i - hash_map[longest]
+                res = max(res, x)
+                
+        return res
+                
