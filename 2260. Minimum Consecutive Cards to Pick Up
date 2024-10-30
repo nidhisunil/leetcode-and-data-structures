@@ -1,0 +1,23 @@
+class Solution(object):
+    def minimumCardPickup(self, cards):
+        """
+        :type cards: List[int]
+        :rtype: int
+        """
+        res = len(cards) + 1
+        hash_map = {}
+
+        for i,card in enumerate(cards):
+            if card not in hash_map:
+                hash_map[card] = i
+
+            else:
+                x = i - hash_map[card] + 1
+                res = min(res, x)
+                hash_map[card] = i
+
+        if (res == len(cards) + 1):
+            return -1
+
+        else:
+            return res 
