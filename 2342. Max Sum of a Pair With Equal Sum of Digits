@@ -1,0 +1,37 @@
+class Solution(object):
+
+    #can improve time complexity by removing sorting 
+
+    def element_sum(self, n):
+        sums = 0
+        for digit in str(n):  
+            sums += int(digit)       
+        return sums
+
+    def maximumSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        hashmap = {}
+        for n in nums:
+            sod = self.element_sum(n)
+            if sod not in hashmap:
+                hashmap[sod] = [n]
+            else:
+                hashmap[sod].append(n)
+        maxsum = 0
+        for key, value in hashmap.items():
+            if (len(value) >= 2):
+                value.sort(reverse=True)
+                tempsum = value[0] + value[1]
+                if tempsum > maxsum:
+                    maxsum = tempsum 
+                    
+
+
+        if maxsum == 0:
+            return -1
+        else:
+            return maxsum
