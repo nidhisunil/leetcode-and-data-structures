@@ -1,0 +1,25 @@
+class Solution(object):
+    def numJewelsInStones(self, jewels, stones):
+        """
+        :type jewels: str
+        :type stones: str
+        :rtype: int
+        """
+        """
+        Make hashmap of stones. For every letter in jewels that exists in stones, add up a count 
+        """
+        
+        hashmap = {}
+        count = 0
+        for i, s in enumerate(stones):
+            if s not in hashmap:
+                hashmap[s] = 1
+            else:
+                hashmap[s] = hashmap[s] + 1
+                
+        for j in jewels:
+            if j in hashmap:
+                count = count + hashmap[j]
+                
+        return count 
+            
