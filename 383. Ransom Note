@@ -1,0 +1,35 @@
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        """
+        Create a hash table for both ransom note and magazine. The letters of ransomNote should be present in magazine, and the number of the that letter in the hashmap of magazine should be atlest equal to number of same letter in ransomNote's hashmap
+        """
+
+
+        ransom_hash, mag_hash = {}, {}
+        for i, n in enumerate(ransomNote):
+            if n not in ransom_hash:
+                ransom_hash[n] = 1
+            else:
+                ransom_hash[n] = ransom_hash[n] + 1
+                
+        for i, n in enumerate(magazine):
+            if n not in mag_hash:
+                mag_hash[n] = 1
+            else:
+                mag_hash[n] = mag_hash[n] + 1
+                
+        for letter, occurences in ransom_hash.items():
+            if letter not in mag_hash.keys():
+                return False
+            elif (mag_hash[letter]<occurences):
+                return False 
+            
+        return True 
+                
+                
+            
