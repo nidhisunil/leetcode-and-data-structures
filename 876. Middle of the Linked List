@@ -1,0 +1,28 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def middleNode(self, head):
+        """
+        :type head: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        count = 0
+        
+        #traverse the linked list
+        head1=head
+        while head1:
+            count += 1
+            head1 = head1.next
+        #now count has the length of linked list
+        count = count//2+1
+        list1 = []
+        n = 0
+        head1=head
+        while head1:
+            n += 1
+            if n==count:
+                return head1
+            head1 = head1.next
