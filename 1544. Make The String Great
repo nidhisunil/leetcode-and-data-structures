@@ -1,0 +1,22 @@
+class Solution(object):
+    def makeGood(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        
+        stack = []
+        for letter in s:
+            if (stack and letter.swapcase() == stack[-1]):
+                stack.pop()
+                
+            else: 
+                stack.append(letter)
+                
+        answer = "".join(stack)
+        
+        if not stack:
+            return ("")
+        else: 
+            answer = "".join(stack)
+            return(answer)   
